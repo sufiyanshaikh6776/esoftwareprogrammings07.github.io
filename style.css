@@ -1,5 +1,82 @@
-h1{
-  color: blue;
-  background-color: lightgreen;
-  text-align: center;
+
+div1 {
+    background-color: ;
+    pader:5px;
+    border:3px;
+}
+
+button {
+    background-color: #6afff5;
+    color: #000000;
+    border: border-box;
+    padding: 6px;
+    margin: auto;
+    width: 75px;
+    text-align: center;
+    position: center;
+    top: 100%;
+}
+
+body {
+    background-color: #280a24e8;
+}
+
+div {
+    margin: 0px;
+    background-color: #280a24e8;
+    border: border-box;
+    padding: 5px;
+    height: 100%;
+    width: 96%;
+}
+
+h1 {
+    margin: 5px;
+    color: #f8ff80;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+div3 {
+     margin: 0px;
+     text-align: center;
+     padding: 10xp;
+     top: 50%;
+}
+
+div2 {
+    background-color: #0f0f0fe8;
+    padding: 5px;
+    width: 80%;
+    height: 100%;
+}
+
+h2 {
+    text-align: center;
+    background-color: #1a0003e8;
+    border: border-box;
+    color: #f4d5ff;
+    width: 98%;
+}
+div {
+  background-color: #280a24e8;
+  animation-name: example;
+  animation-duration: 5s;
+}
+
+@keyframes example {
+  0%   {background-color: red;}
+  15%  {background-color: #7f3573e8;}
+  25%  {background-color: yellow;}
+  35%  {background-color: #2a7f7fe8;}
+  50%  {background-color: blue;}
+  75%  {background-color: green;}
+  100% {background-color: #a66f83e8;}
+}
+
+div4 {
+    margin: 0;
+    width: 10px;
+    height: 20px;
 }
