@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Website Project</title>
+    <link rel="stylesheet" href="style10.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+</head>
+<body>
+    <header>
+       <div class="navbar">
+        <div class="logo"></div>
+        <div class="products"><button>Products</button></div>
+        <div class="products"><button>Animation</button></div>
+        <div class="products"><button>Technologie</button></div>
+        <div class="products"><button>Protocols</button></div>
+        <div class="login"><button><a href="https://youtube.com/@sufiyanshaikh.s07?si=86x2docUF046z2UM">Log in</a></button></div>
+       </div>
+    </header>
+    <div class="boxnav">
+        <p>Reduce Size of Image</p>
+        <div class="box">     
+          <main>
+                <div id="canvasContainer">
+                   <input type="file" id="imageInput" accept="image/*">
+                   <label for="imageInput" id="button">Choose Image</label>
+                   <canvas id="imageCanvas" ></canvas>
+                   <label for="qualityInput" id="button">Quality:</label>
+                   <input type="number" id="qualityInput" min="1" max="100" value="80">
+                   <button onclick="downloadResizedImage()">Download Resized Image</button>
+                </div>
+          </main>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
 
+        document.getElementById('imageInput').addEventListener('change', handleImage);
+
+        function handleImage(e) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                img.onload = function() {
+                    const scaledWidth = 200;
+                    const scaledHeight = (scaledWidth / img.width) * img.height;
+
+                    canvas.width = scaledWidth;
+                    canvas.height = scaledHeight;
+
+                    ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
+                };
+
+                img.src = event.target.result;
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        function downloadResizedImage() {
+            const quality = document.getElementById('qualityInput').value;
+            const dataUrl = canvas.toDataURL('image/jpeg', quality / 100);
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = 'resized_image.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>
