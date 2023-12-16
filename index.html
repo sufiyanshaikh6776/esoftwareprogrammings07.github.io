@@ -3,190 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Clone</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style10.css">
+    <title>Self Website Project</title>
+    <link rel="stylesheet" href="styleself1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="nav-logo border">
-                <div class="logo"></div>  
-            </div>
-
-            <div class="nav-address border">
-                <p class="add-first">Deliver to</p>
-                <div class="add-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p class="add-sec">India</p>
-                </div> 
-            </div>
-
-            <div class="nav-search">
-                <select class="search-select">
-                    <option>All</option>
-                </select>
-                <input placeholder="Search Amazon" class="search-input">
-                <div class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div>   
-         <div class="nav-signin">
-            <p><span>Hello, sign in</span></p>
-            <p class="nav-second">Account & Lists</p>
-         </div>
-
-         <div class="nav-return">
-            <p><span>Returns</span></p>
-            <p class="nav-second">& Orders</p>
-          </div>
-
-          <div class="nav-cart border">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Cart
-          </div>
-        </div>
-
-        <div class="panel">
-           <div class="panel-all">
-            <i class="fa-solid fa-bars"></i>
-            All 
-           </div>
-           <div class="panel-ops">
-            <p>Today's Deals</p>
-            <p>Customer Service</p>
-            <p>Registry</p>
-            <p>Gift Cards</p>
-            <p>Sell</p>
-           </div>
-           <div class="panel-deals">
-            Shop deals on Electronics
-           </div>
-        </div>
-        
+       <div class="navbar">
+        <div class="logo"></div>
+        <div class="products"><button>Products</button></div>
+        <div class="products"><button>Animation</button></div>
+        <div class="products"><button>Technologie</button></div>
+        <div class="products"><button>Protocols</button></div>
+        <div class="login"><button><a href="https://www.instagram.com/esoftwareprogramming.s07/">Log in</a></button></div>
+       </div>
     </header>
-
-    <div class="hero-section">   
-        <div class="hero-msg">
-            <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.<a>Click here to amazon.in</a></p>
-        </div> 
+    <div class="boxnav">
+        <p>Reduce Size of Image</p>
+        <div class="box">     
+          <main>
+                <div id="canvasContainer">
+                   <input type="file" id="imageInput" accept="image/*">
+                   <label for="imageInput" id="button">Choose Image</label>
+                   <canvas id="imageCanvas" ></canvas>
+                   <label for="qualityInput" id="button">Quality:</label>
+                   <input type="number" id="qualityInput" min="1" max="100" value="80">
+                   <button onclick="downloadResizedImage()">Download Resized Image</button>
+                </div>
+          </main>
+        </div>
     </div>
+    <script>
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
 
-    <div class="shop-section">
-        <div class="box1 box">
-           <div class="box-content">
-            <h2>Electronics Best Deal's</h2>
-            <div class="box-image" style="background-image: url('box4_image.jpg');"></div>
-            <p>See more</p>
-           </div>
-        </div>  
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Dress & Pieses</h2>
-                <div class="box-image" style="background-image: url('box1_image.jpg');"></div>
-                <p>See more</p>
-               </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Cream's products Best Deal's</h2>
-                <div class="box-image" style="background-image: url('box2_image.jpg');"></div>
-                <p>See more</p>
-               </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Beauty products Best Deal's</h2>
-                <div class="box-image" style="background-image: url('box5_image.jpg');"></div>
-                <p>See more</p>
-               </div>
-        </div>
+        document.getElementById('imageInput').addEventListener('change', handleImage);
 
-        <div class="box1 box">
-            <div class="box-content">
-             <h2>Dog's & Pet Food Deal's</h2>
-             <div class="box-image" style="background-image: url('box6_image.jpg');"></div>
-             <p>See more</p>
-            </div>
-         </div>  
-         <div class="box2 box">
-             <div class="box-content">
-                 <h2>Toy's Deal's</h2>
-                 <div class="box-image" style="background-image: url('box7_image.jpg');"></div>
-                 <p>See more</p>
-                </div>
-         </div>
-         <div class="box3 box">
-             <div class="box-content">
-                 <h2>Beauty product Deal's</h2>
-                 <div class="box-image" style="background-image: url('box8_image.jpg');"></div>
-                 <p>See more</p>
-                </div>
-         </div>
-         <div class="box4 box">
-             <div class="box-content">
-                 <h2>Electronic Gadget's Best Deal's</h2>
-                 <div class="box-image" style="background-image: url('box4_image.jpg');"></div>
-                 <p>See more</p>
-                </div>
-         </div>
-    </div>
+        function handleImage(e) {
+            const reader = new FileReader();
 
-    <footer>
-        <div class="foot-panel1">
-            Back to top
-        </div>
+            reader.onload = function(event) {
+                img.onload = function() {
+                    const scaledWidth = 200;
+                    const scaledHeight = (scaledWidth / img.width) * img.height;
 
-        <div class="foot-panel2">
-            <u>
-                <p>Get to Know Us</p>
-                <a>Careers</a>
-                <a>Blog</a>
-                <a>About Amazon</a>
-                <a>Amazon Devices</a>
-                <a>Amazon Sciences</a>
-            </u>
-            <u>
-                <p>Get to Know Us</p>
-                <a>Careers</a>
-                <a>Blog</a>
-                <a>About Amazon</a>
-                <a>Amazon Devices</a>
-                <a>Amazon Sciences</a>
-            </u>
-            <u>
-                <p>Get to Know Us</p>
-                <a>Careers</a>
-                <a>Blog</a>
-                <a>About Amazon</a>
-                <a>Amazon Devices</a>
-                <a>Amazon Sciences</a>
-            </u>
-            <u>
-                <p>Get to Know Us</p>
-                <a>Careers</a>
-                <a>Blog</a>
-                <a>About Amazon</a>
-                <a>Amazon Devices</a>
-                <a>Amazon Sciences</a>
-            </u>
-        </div>
+                    canvas.width = scaledWidth;
+                    canvas.height = scaledHeight;
 
-        <div class="foot-panel3">
-            <div class="logo"></div>
-        </div>
+                    ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
+                };
 
-        <div class="foot-panel4">
-            <div class="pages">
-                <a>Conditions of Use</a>
-                <a>Privacy Notice</a>
-                <a>Tour Ads Privacy Choices</a>
-            </div>
-            <div class="copyright">
-                19996-2023, Amazon.com, Inc. or its affiliates
-                It Created by Mohammed Sufiyan
-            </div>
-        </div>
-    </footer>
+                img.src = event.target.result;
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        function downloadResizedImage() {
+            const quality = document.getElementById('qualityInput').value;
+            const dataUrl = canvas.toDataURL('image/jpeg', quality / 100);
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = 'resized_image.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
 </body>
 </html>
